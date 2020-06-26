@@ -1,0 +1,30 @@
+{% extends "account/base.html" %}
+{% comment %} {% load i18n %}
+{% load account socialaccount %} {% endcomment %}
+{% load crispy_forms_tags %}
+
+{% comment %} {% block head_title %}{% trans "Sign In" %}{% endblock %} {% endcomment %}
+
+{% block content %}
+  <main>
+    <div class="container">
+      <section class="mb-4">
+        <div class="row wow fadeIn">
+          <div class='col-6 offset-3'>
+          {% comment %} <h1>{% trans "Sign In" %}</h1> {% endcomment %}
+
+         
+
+          <form class="login" method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+               <input type="text" name="username">
+               <input type="password" name="password">
+               <button class="btn btn-primary" type="submit"> "Sign In"</button>
+          </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+{% endblock %}
