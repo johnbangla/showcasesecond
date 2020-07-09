@@ -21,3 +21,8 @@ body,
 /* Footer color for sake of consistency with Navbar */
 .page-footer {
   background-color: #929FBA; }
+.navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar{
+  background-color: #203040;
+
+
+}

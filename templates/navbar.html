@@ -1,33 +1,29 @@
 {% load cart_template_tags %}
+ <!--We need a side menu-->
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+
+<nav class="navbar  navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container">
 
-      <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="/">
-        <strong class="blue-text">Jsoft-Ecommerce</strong>
-      </a>
 
-      <!-- Collapse -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">hi</span>
-      </button>
+    
 
-      <!-- Links -->
+
+
+    
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
-         {% comment %} <li class="nav-item active">
-            <a class="nav-link waves-effect" href="/">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="/checkout">
-            Checkout</a>
-          </li>  {% endcomment %}
+   
+
+<!-- Search form -->
+<form class="form-inline mr-auto" method="GET"  role="search" action= "{% url 'search' %}">
+      <input class="form-control " type="text" name="q" placeholder="Search" aria-label="Search">
+      <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
+</form>
+  
         </ul>
 
         <!-- Right -->
@@ -42,18 +38,20 @@
           </li>
           <li class="nav-item">
             <a class="nav-link waves-effect" href="{% url 'logout' %}">
+              <i class="fa fa-sign-out"></i>           
               <span class="clearfix d-none d-sm-inline-block"> Logout </span>
             </a>
           </li>
           {% else %}
           <li class="nav-item">
             <a class="nav-link waves-effect" href="{% url 'login' %}">
-              <span class="clearfix d-none d-sm-inline-block"> Login </span>
+           <button style="font-size:0.8rem;background-color: #4CAF50;">Login <i class="material-icons">account_box</i></button> 
+
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link waves-effect" href="{% url 'register' %}">
-              <span class="clearfix d-none d-sm-inline-block"> Signup </span>
+              <button style="font-size:0.8rem;background-color: brown;">Register <i class="material-icons">add_circle_outline</i></button>
             </a>
           </li>
           {% endif %}
@@ -61,4 +59,5 @@
       </div>
 
     </div>
-  </nav>
+  </nav> 
+

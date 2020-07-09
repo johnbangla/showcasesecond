@@ -606,11 +606,41 @@ class OrderSummaryView(LoginRequiredMixin, View):
 
 class HomeView(ListView):
     model = Item
-    paginate_by = 10
+    paginate_by = 6
     template_name = "home.html"    
 
+def search(request):
+    try :
+         q = request.GET.get('q')
+         print(q)
+    except:
+        q = None
+    if q :
+        items = Item.objects.filter(title__icontains=q)
+        context = {'query' : q , 'items' : items}
+        template_name = "result.html" 
+    else:
+        template_name = "home.html"
+        context = {}
+    return render (request,template_name,context)   
+
+def about(request):
+    template_name = "about.html"
+    context = {}
+    return render (request,template_name,context)   
 
 
+
+def menusearch(request,pk_test):
+  
+    if pk_test :
+        items = Item.objects.filter(title__icontains=pk_test)
+        context = {'items' : items}
+        template_name = "result.html" 
+    else:
+        template_name = "home.html"
+        context = {}
+    return render (request,template_name,context)   
 #paypal code here
 def process_payment(request):
     order_id = create_ref_code()  # an order id created by our own function

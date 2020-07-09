@@ -31,30 +31,35 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
+# INSTALLED_APPS = [
+#     'django.contrib.admin',
+#     'django.contrib.auth',
+#     'django.contrib.contenttypes',
+#     'django.contrib.sessions',
+#     'django.contrib.messages',
+#     'django.contrib.staticfiles',
+#     'django.contrib.sites','crispy_forms','allauth',
+# 'django_countries',
+# 'allauth.account',
+# 'allauth.socialaccount','stripe','myapp.apps.MyappConfig', 'paypal.standard.ipn',  
+    
+# ]
+
+DEFAULT_APPS = [  'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites','crispy_forms','allauth',
+    'django.contrib.sites',]
+LOCAL_APPS = ['crispy_forms','allauth',
 'django_countries',
 'allauth.account',
-'allauth.socialaccount','stripe','myapp.apps.MyappConfig', 'paypal.standard.ipn',  
-    
-]
+'allauth.socialaccount','stripe','myapp.apps.MyappConfig', 'paypal.standard.ipn',  ]
 
-# LOCAL_APPS = ['myapp']
 
-# THIRD_PARTY_APPS = [
-# 'crispy_forms','allauth',
-# 'django_countries',
-# 'allauth.account',
-# 'allauth.socialaccount','stripe',
-# ]
 
-# INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
+INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS 
 
 
 
@@ -163,3 +168,13 @@ STRIPE_SECRET_KEY = config('STRIPE_LIVE_SECRET_KEY')
 PAYPAL_RECEIVER_EMAIL = 'aiaal1940704@business.example.com'
  
 PAYPAL_TEST = True
+
+
+#reset email:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'johnbangla@gmail.com'
+EMAIL_HOST_PASSWORD = 'pakistan_123'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
