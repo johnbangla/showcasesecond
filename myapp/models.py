@@ -63,7 +63,26 @@ class Item(models.Model):
         return reverse("remove-from-cart", kwargs={
             'slug': self.slug
         })
-
+'''
+Image class is responsible for a collection of images to show list of images for a single product
+Here ,we used a @property named imageURL(self) -It does return a clean imageurl for simplicity ,otherwise we have to write .url multiple times.
+'''
+class ExtraImage(models.Model):
+    pitem = models.ForeignKey(Item, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200,blank=True,null=True)
+    image = models.ImageField(blank=True,null=True)
+    cimage = models.ImageField(blank=True,null=True)
+    
+    def __str__(self):
+        return self.name
+    @property
+    def imageURL(self):
+        try:
+            url = self.cimage.url
+        except:
+            url = ''
+        print('URL:', url)
+        return url
 
 class OrderItem(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,

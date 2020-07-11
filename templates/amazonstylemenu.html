@@ -1,12 +1,20 @@
-
+{% load static %}
  <!--We need a side menu-->
-
+<style>
+img {
+  border-radius: 50%;
+}
+.mylogo {
+      border-radius: 50%; 
+}
+</style>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container">
  <!-- Brand -->
       <a class="d-flex p-2 col-example" href="/">
-        <strong >Fatima-Ecommerce</strong>
+         <p class="mylogo">Fatima-Ecommerce</p> 
+        {% comment %} <img src="{% static 'img/fatima.png' %}"  alt="Avatar"> {% endcomment %}
       </a>
 
      
@@ -63,8 +71,20 @@
                 </li>
             </ul>
           
+  <div class="f8 b grow">
   
+      <a class="nav-link" href= " {% url 'request-refund'  %}"> 
+     Click Refund/Call  01553080223 
+       </a> 
+        
+</div>
 
+
+  
+      
+      
+     
+        
 
      
 
@@ -82,7 +102,7 @@
 
         <!-- Right -->
        <ul class="navbar-nav nav-flex-icons">
-        <strong> Call US 01553080223 </strong>
+         Call US 01553080223 
         </ul> 
 
 

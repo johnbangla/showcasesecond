@@ -170,11 +170,20 @@ PAYPAL_RECEIVER_EMAIL = 'aiaal1940704@business.example.com'
 PAYPAL_TEST = True
 
 
-#reset email:
+# #reset email:
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'johnbangla@gmail.com'
+# EMAIL_HOST_PASSWORD = 'pakistan_123'
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+
+#send grid account info
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'johnbangla@gmail.com'
-EMAIL_HOST_PASSWORD = 'pakistan_123'
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER ='apikey'
+EMAIL_HOST_PASSWORD = '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'
+
+EMAIL_USE_TLS = False

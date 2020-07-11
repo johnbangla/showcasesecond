@@ -11,6 +11,7 @@ from .views import (
     PaymentView,
     AddCouponView,
     RequestRefundView,
+    SendFormEmail,
      # PaymentViewbyCash
 )
 
@@ -18,8 +19,8 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path(r'/s/$',views.search,name='search'),
-    path('/<str:pk_test>',views.menusearch,name='menusearch'),
+    path('<^/s/$>',views.search,name='search'),
+    path('<str:pk_test>',views.menusearch,name='menusearch'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('order-summary/', OrderSummaryView.as_view(), name='order-summary'),
     path('product/<slug>/', ItemDetailView.as_view(), name='product'),
@@ -44,6 +45,9 @@ urlpatterns = [
     path('reset/<uidb64>/<token>',auth_views.PasswordResetConfirmView.as_view(),name="password_reset_confirm" ),
     path('reset_password_complete/',auth_views.PasswordResetCompleteView.as_view(),name="password_reset_complete" ),
     path('about/', views.about , name='about'),
+    #Contact us
+
+    path('send-form-email/',views.SendFormEmail.as_view(),name='send_email'),
    
    
     

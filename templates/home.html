@@ -1,7 +1,9 @@
 {% extends 'base.html'	%}
 {% load static %}
 {% static "images" as baseUrl %}
-
+ <title>{% block head_title %}
+ Home Page 
+ {% endblock %}</title>
 {%	block content	%}
 
 
@@ -11,7 +13,7 @@
 
      
       <!--Section: Products v.3-->
-      <section class="text-center mb-4">
+      <section class="text-center mb-4 ">
 
         <!--Grid row-->
         <div class="row wow fadeIn">
@@ -21,10 +23,10 @@
           {% for item in object_list %}
           <div class="col-lg-3 col-md-6 mb-4">
 
-            <div class="card">
+            <div class="card" >
 
               <div class="view overlay">
-                <img src="{{ item.image.url }}" class="card-img-top">
+                <img src="{{ item.image.url }}" class="card-img-top  ">
                 <a href="{{ item.get_absolute_url }}">
                   <div class="mask rgba-white-slight"></div>
                 </a>

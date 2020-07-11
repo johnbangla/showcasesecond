@@ -78,7 +78,7 @@ def create_ref_code():
 
 def products(request):
     context = {
-        'items': Item.objects.all()
+        'items': Item.objects.all()   #all
     }
     return render(request, "products.html", context)
 
@@ -629,7 +629,29 @@ def about(request):
     context = {}
     return render (request,template_name,context)   
 
+#Contact us form here
+class SendFormEmail(View):
+    
+    def  get(self, request):
 
+        # Get the form data 
+        name = request.GET.get('message-name', None)
+        email = request.GET.get('message-email', None)
+        message = request.GET.get('message', None)
+
+        # Send Email
+        send_mail(
+            'Subject - Django Email Testing', 
+            'Hello ' + name + ',\n' + message, 
+            'tmth@jsoft.website', # Admin
+            [
+                email,
+            ]
+        ) 
+
+        # Redirect to same page after form submit
+        messages.success(request, ('Email sent successfully.'))
+        return render(request,'index.html')
 
 def menusearch(request,pk_test):
   

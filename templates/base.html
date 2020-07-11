@@ -7,6 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{% block head_title %}{% endblock %}</title>
+
+   <!-- add icon link -->
+        <link rel = "icon" href = "{% static 'img/fatima.png' %}"
+        type = "image/x-icon"> 
+<!--Aded icon link-->
+
+
   {% block extra_head %}
   {% endblock %}
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -16,8 +23,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
-  {% comment %} <link href="{% static 'css/amazonstyle.css'  %}" rel="stylesheet"> {% endcomment %}
-  <style type="text/css">
+   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+   
+  
+   <style type="text/css">
     html,
     body,
     header,
@@ -50,7 +59,9 @@
   {% include "carosal.html" %}
   </div>
 </head>
-{% include "amazonstylemenu.html" %}
+{% include "amazonstylemenu.html" %} 
+
+
 {% include "navbar.html" %}
 
 <body>
