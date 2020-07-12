@@ -13,7 +13,7 @@
     <div class="carousel-inner" role="listbox">
 
       <!--First slide-->
-      <div class="carousel-item active">
+       <div class="carousel-item active">
         <div class="view" style="background-image: url('{% static 'img/sample2.jpg' %}'); background-repeat: no-repeat;  ">
 
           <!-- Mask & flexbox options-->
@@ -37,11 +37,15 @@
           <!-- Mask & flexbox options-->
 
         </div>
-      </div>
+      </div> 
       <!--/First slide-->
 
       <!--Second slide-->
-      <div class="carousel-item">
+    } <div class="carousel-item">
+
+      
+
+
         <div class="view" style="background-image: url('{% static 'img/sample2.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
 
           <!-- Mask & flexbox options-->
@@ -69,8 +73,13 @@
       <!--/Second slide-->
 
       <!--Third slide-->
-      <div class="carousel-item">
-        <div class="view" style="background-image: url('{% static 'img/sample2.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
+      {% comment %} <div class="carousel-item">
+         
+        {% for info in dests	 %}
+
+         <img src="{{info.photo.url}}" alt="">
+
+        <div class="view" style="background-image: url({{info.photo.url}}); background-repeat: no-repeat; background-size: cover;">
 
           <!-- Mask & flexbox options-->
           <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -78,7 +87,7 @@
             <!-- Content -->
             <div class="text-center white-text mx-5 wow fadeIn">
               <h5 class="mb-1">
-                <strong>Buy 1 Get One</strong>
+                <strong>{{ info.name }}</strong>
               </h5>
 
               
@@ -90,10 +99,12 @@
             <!-- Content -->
 
           </div>
+
+          {% endfor %}
           <!-- Mask & flexbox options-->
 
         </div>
-      </div>
+      </div> {% endcomment %}
       <!--/Third slide-->
 
     </div>

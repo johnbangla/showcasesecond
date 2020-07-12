@@ -10,8 +10,12 @@ from django_countries.fields import CountryField
 CATEGORY_CHOICES = (
     ('S', 'Shirt'),
     ('SW', 'Sport wear'),
-    ('OW', 'Outwear')
+    ('OW', 'Outwear'),
+    ('N','New'),
 )
+
+
+
 
 LABEL_CHOICES = (
     ('P', 'primary'),
@@ -198,10 +202,7 @@ class Refund(models.Model):
     def __str__(self):
         return f"{self.pk}"
 
-
-# def userprofile_receiver(sender, instance, created, *args, **kwargs):
-#     if created:
-#         userprofile = UserProfile.objects.create(user=instance)
-
-
-# post_save.connect(userprofile_receiver, sender=settings.AUTH_USER_MODEL)
+#we would like to create dynamic carosal images to show advirtisements ,we will add images from adminpanel to perform this.
+class Carosalimages(models.Model):
+    name = models.CharField(max_length=10,blank=True,null=True)
+    photo = models.ImageField(null=True,blank=True)

@@ -13,7 +13,7 @@ from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
 from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm,CreateUserForm
-from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
+from .models import Carosalimages,Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
 #paypal
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
@@ -683,4 +683,9 @@ def payment_done(request):
 @csrf_exempt
 def payment_canceled(request):
     return render(request, 'payment_cancelled.html')
-    
+#this is for making dynamic carosal images 
+def carosalfunction(request):
+    dests = Carosalimages.objects.all()
+    return render (request,"carosal.html",{'dests': dests})
+
+# end    

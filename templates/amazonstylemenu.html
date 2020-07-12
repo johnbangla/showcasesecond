@@ -5,13 +5,50 @@ img {
   border-radius: 50%;
 }
 .mylogo {
-      border-radius: 50%; 
+     margin:1.5rem; lightgrey; color: blue;
+}
+</style>
+<style>
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 20;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
 }
 </style>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container">
  <!-- Brand -->
+ <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+
       <a class="d-flex p-2 col-example" href="/">
          <p class="mylogo">Fatima-Ecommerce</p> 
         {% comment %} <img src="{% static 'img/fatima.png' %}"  alt="Avatar"> {% endcomment %}
@@ -43,39 +80,12 @@ img {
                   <li class="nav-item">
                      <a class="nav-link" href= " {% url 'menusearch' "computer" %}"> <strong class="green-text" >Computer</strong> </a>
         
-                </li>
-                  <li class="nav-item">
-                   <a class="nav-link" href= " {% url 'menusearch' "medical" %}"> <strong class="green-text" >Medical</strong> </a>
-        
-                </li>
-                 <li class="nav-item">
-                     <a class="nav-link" href= " {% url 'menusearch' "electronic" %}"> <strong class="green-text" >Electronics</strong> </a>
-        
-                </li> <li class="nav-item">
-                     <a class="nav-link" href= " {% url 'menusearch' "service" %}"> <strong class="green-text" >Service</strong> </a>
-        
-                </li>
-                
-                 <li class="nav-item">
-                     <a class="nav-link" href= " {% url 'menusearch' "digital" %}"> <strong class="green-text" >Digital Marketing</strong> </a>
-        
-                </li>
-                 <li class="nav-item">
-                     <a class="nav-link" href= " {% url 'menusearch' "programing" %}"> <strong class="green-text" >IT Course</strong> </a>
-        
-                </li>
-                   <li class="nav-item">
-                       <a class="nav-link" href= " {% url 'about'  %}"> <strong class="green-text" >About US</strong> </a>
-        
-        
-                </li>
+              
             </ul>
           
   <div class="f8 b grow">
   
-      <a class="nav-link" href= " {% url 'request-refund'  %}"> 
-     Click Refund/Call  01553080223 
-       </a> 
+     
         
 </div>
 
@@ -102,12 +112,37 @@ img {
 
         <!-- Right -->
        <ul class="navbar-nav nav-flex-icons">
-         Call US 01553080223 
+   <a class="nav-link" href= " {% url 'request-refund'  %}"> 
+     Click Refund/Call  01553080223 
+       </a> 
         </ul> 
 
 
       </div>
 
     </div>
+      <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+           <a class="nav-link" href= " {% url 'about'  %}"> <strong class="green-text" >About US</strong> </a>
+        
+           <a class="nav-link" href= " {% url 'menusearch' "programing" %}"> <strong class="green-text" >IT Course</strong> </a>
+        
+           <a class="nav-link" href= " {% url 'menusearch' "electronic" %}"> <strong class="green-text" >Electronics</strong> </a>
+        
+           <a class="nav-link" href= " {% url 'menusearch' "medical" %}"> <strong class="green-text" >Medical</strong> </a>
+           <a class="nav-link" href= " {% url 'menusearch' "shirt" %}"> <strong class="green-text" >Shirt</strong> </a>
+           <a class="nav-link" href= " {% url 'menusearch' "pant" %}"> <strong class="green-text" >Pant</strong> </a>
+             
+    </div>
+
   </nav> 
 
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
